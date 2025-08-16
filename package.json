@@ -3,23 +3,35 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "prepare": "panda codegen",
+    "dev": "panda codegen && next dev",
+    "build": "panda codegen && next build",
+    "start": "panda codegen && next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/panda-preset": "^3.24.2",
+    "@pandacss/dev": "^1.0.1",
+    "@tanstack/react-query": "^5.85.3",
+    "@tanstack/react-query-devtools": "^5.85.3",
+    "@xyflow/react": "^12.8.3",
+    "axios": "^1.11.0",
+    "lucide-react": "^0.539.0",
+    "miragejs": "^0.1.48",
+    "next": "15.4.6",
+    "next-themes": "^0.4.6",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "next": "15.4.6"
+    "react-icons": "^5.5.0"
   },
   "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^19",
+    "@eslint/eslintrc": "^3",
+    "@pandacss/types": "^1.0.1",
+    "@types/node": "^20.19.10",
+    "@types/react": "^19.1.10",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.4.6",
-    "@eslint/eslintrc": "^3"
+    "typescript": "^5"
   }
 }
