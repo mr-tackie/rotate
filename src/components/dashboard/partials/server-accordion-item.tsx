@@ -15,6 +15,7 @@ import {
   AccordionItemContent
 } from '@/components/ui/accordion'
 import { useServerData } from '@/hooks/use-dashboard-content';
+import { Divider } from '@/components/ui/divider';
 
 export const ServerAccordion = () => {
   const {data: serverItems, isLoading} = useServerData();
@@ -26,19 +27,24 @@ export const ServerAccordion = () => {
   }
 
   return (
+    <Box>
+    <Text fontSize="15px" fontWeight="700" color="slate">Lorem Ipsum Dolor Sit</Text>
     <Accordion multiple variant="plain">
       <VStack gap="5" align="stretch" mt={4}>
         {serverItems?.map((item) => (
           <AccordionItem 
             key={item.id}
             value={item.title}
-            borderRadius="xl"
+            borderRadius="15px"
             bg="bg"
-            boxShadow="sm"
+            boxShadow="xs"
             px="4"
             py="3"
+            border="1px solid accordionBorder"
           >
-            <AccordionItemTrigger>
+            <AccordionItemTrigger
+              indicatorPlacement="none"
+            >
               <VStack cursor="pointer" gap="3" align="stretch" w="full">
                 <Text fontSize="15px" fontWeight="bold" color="slate">
                   {item.title}
@@ -47,41 +53,44 @@ export const ServerAccordion = () => {
                 <Flex 
                   flexWrap={{base: "wrap", xl: "nowrap"}}
                   align="center" 
+                  justify="space-between"
                   gap="4"
                   px="4"
                   py="1.5"
                 >
                   <Flex 
                     align="center" 
-                    justify="center"
+                    justify="start"
                     gap="2"
                     pr={{xl: "4"}}
-                    borderRight={{xl: "1px solid"}}
-                    borderColor="bg.muted"
+                    borderRight="1px solid gray.600"
                   >
                     <Box bg="blue.subtle" p={4} borderRadius="full">
                       <Server size={22} color="#3182CE" />
                     </Box>
                     
-                    <Flex align="center" justify="center" direction="column">
+                    <Flex align="start" justify="center" direction="column">
                       <Text
-                        fontSize="sm"
+                        fontSize="12px"
                         fontWeight="semibold"
-                        color="slate"
+                        color="#404A60"
+                        mb={0}
+                        lineHeight="12px"
                       >
                         {item.subtitle}
                       </Text>
                       <Text
-                        fontSize="xs"
+                        fontSize="10px"
                         fontWeight="medium"
-                        color="slate"
+                        color="#667085"
+                        lineHeight="10px"
+                        mt={0}
                       >
                         Server
                       </Text>
                     </Flex>
                   </Flex>
-                  
-                  <Text fontSize="sm" color="fg.muted">
+                  <Text fontSize="13px" color="fg.muted">
                     {item.description}
                   </Text>
                 </Flex>
@@ -99,5 +108,6 @@ export const ServerAccordion = () => {
         ))}
       </VStack>
     </Accordion>
+    </Box>
   )
 }

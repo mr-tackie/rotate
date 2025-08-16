@@ -105,7 +105,7 @@ const serverData: ServerItem[] = [
     title: 'Lorem S',
     subtitle: 'Server',
     description: 'Lorem Ipsum Dolor Sit Amet Consectetur.',
-    details: 'Lorem Ipsum Dolor Sit Amet Consectetur. In Laoreet Elementum Luctus Odio. Id Enim Urna.',
+    details: 'Lorem ipsum dolor sit amet consectetur. Quis viverra etiam pellentesque lectus semper in massa purus. Auctor aenean aenean senectus massa dignissim vehicula mi erat purus. Praesent scelerisque aliquet metus sagittis dictum sed sed. Sed venenatis sed urna quam.',
     status: 'normal'
   },
   {
@@ -113,7 +113,7 @@ const serverData: ServerItem[] = [
     title: 'Lorem T',
     subtitle: 'Server',
     description: 'Lorem Ipsum Dolor Sit Amet Consectetur.',
-    details: 'Lorem Ipsum Dolor Sit Amet Consectetur. In Laoreet Elementum Luctus Odio. Id Enim Urna.',
+    details: 'Lorem ipsum dolor sit amet consectetur. Nunc vitae tortor convallis vitae arcu. Magna.',
     status: 'warning'
   }
 ]

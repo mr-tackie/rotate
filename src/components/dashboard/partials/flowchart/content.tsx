@@ -1,6 +1,6 @@
 import { IBM_Plex_Mono } from "next/font/google";
 import { ReceiptText, ShieldCheck, ShieldX } from "lucide-react";
-import { Server } from "lucide-react";
+import StacksIcon from "@/assets/stacks-icon";
 import { Box, Flex, Text, Grid, VStack } from "@chakra-ui/react";
 
 const ibmPlex = IBM_Plex_Mono({
@@ -26,6 +26,7 @@ export const Pill = ({ color, bg }: { color: string; bg: string }) => (
 export const StartNodeContent = () => (
   <Box
     w="460px"
+    h="auto"
     borderRadius="20px"
     bg="#FAFAFA"
     px="7"
@@ -66,9 +67,7 @@ export const ProcessNodeContent = () => (
     boxShadow="0px 4px 4px 0px #00000040"
     align="stretch">
     <Flex align="center" gap="3">
-      <Box p={4} bg="blue.subtle" borderRadius="full">
-            <Server height={30} width={30} color="#3182CE" />
-        </Box>
+      <StacksIcon style={{ height: "2.5rem", width: "2.5rem" }} />
       <Text fontSize="0.875rem" fontWeight="600" color="#525D73">
         Loremipsu
       </Text>
@@ -124,7 +123,7 @@ export const EndNodeContent = ({
       align="stretch">
       <Flex align="center" gap="3">
         <Box position="relative">
-          <Server style={{ height: "2.5rem", width: "2.5rem" }} />
+          <StacksIcon style={{ height: "2.5rem", width: "2.5rem" }} />
           <Grid
             position="absolute"
             top="-1.5"

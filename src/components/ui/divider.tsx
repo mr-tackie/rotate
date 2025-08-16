@@ -19,7 +19,7 @@ export function Divider({
         h="auto" 
         mx={mx}
         alignSelf="stretch"
-        bg="bg.muted" 
+        bg="divider" 
         {...props} 
       />
     )
@@ -30,7 +30,7 @@ export function Divider({
       h="1px" 
       w="100%" 
       my={my} 
-      bg="bg.muted" 
+      bg="divider" 
       {...props} 
     />
   )

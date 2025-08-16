@@ -1,10 +1,10 @@
 'use client'
 
-import { 
-  Box, 
-  VStack, 
-  HStack, 
-  Text, 
+import {
+  Box,
+  VStack,
+  HStack,
+  Text,
   Button,
   IconButton
 } from '@chakra-ui/react'
@@ -16,21 +16,27 @@ import {
   DrawerHeader,
   DrawerRoot,
 } from '@chakra-ui/react'
-import { 
-  LayoutDashboard,
-  Server,
+import {
   LogOut,
   X,
   ChevronLeft,
   ChevronRight,
-  TriangleAlert,
-  Cuboid,
-  Unplug,
-  FileText
+  LogIn
 } from 'lucide-react'
 import { useState } from 'react'
 import { Avatar } from '@/components/ui/avatar'
 import { ColorModeButton } from '../ui/color-mode'
+import DashboardIcon from "@/assets/dashboard-icon";
+import TriangleAlert from "@/assets/triangle-alert";
+import CuboidIcon from "@/assets/cuboid-icon";
+import ShrinkIcon from "@/assets/shrink-icon";
+import UnplugIcon from "@/assets/unplug-icon";
+import DocIcon from "@/assets/doc-icon ";
+import BarsIcon from "@/assets/bars-icon";
+import SettingsIcon from "@/assets/settings-icon ";
+import NotificationIcon from "@/assets/notification-icon";
+import LogoutIcon from "@/assets/logout-icon";
+import { Divider } from '../ui/divider'
 
 interface SidebarProps {
   isDesktop?: boolean
@@ -42,38 +48,47 @@ interface SidebarProps {
 }
 
 interface NavItemProps {
-  icon: React.ReactNode
+  icon: React.ElementType
   label: string
   isActive?: boolean
   isCollapsed?: boolean
   onClick?: () => void
 }
 
-const NavItem = ({ icon, label, isActive = false, isCollapsed = false, onClick }: NavItemProps) => {
+const NavItem = ({ icon: Icon, label, isActive = false, isCollapsed = false, onClick }: NavItemProps) => {
   return (
     <Button
       variant="ghost"
       justifyContent={isCollapsed ? 'center' : 'flex-start'}
       w="full"
       h="12"
-      px={isCollapsed ? '2' : '4'}
-      bg={isActive ? 'green.50' : 'transparent'}
-      color={isActive ? 'green.700' : 'gray.600'}
-      _hover={{ bg: 'green.50', color: 'green.700' }}
-      _focus={{ 
-        boxShadow: '0 0 0 2px green.500',
-        bg: 'green.50' 
+      p={isCollapsed ? '2' : '4'}
+      bg={isActive ? 'active' : 'transparent'}
+      color="menuItem"
+      _hover={{ bg: 'gray.50', color: "gray.fg" }}
+      _focus={{
+        bg: 'active'
       }}
+      fontWeight="normal"
       onClick={onClick}
       role="menuitem"
       title={isCollapsed ? label : undefined}
+      css={{
+        '&:hover span': {
+          color: 'gray.800', 
+        },
+      }}
     >
       {isCollapsed ? (
-        icon
+        <Box as="span" color={isActive ? "gray.800" : "#A3A9B6"} transition="color 0.2s ease-in-out" _hover={{ color: "gray.800" }}>
+          <Icon />
+        </Box>
       ) : (
         <HStack gap="3" w="full">
-          {icon}
-          <Text fontSize="sm" fontWeight={isActive ? 'semibold' : 'medium'}>
+          <Box as="span" color={isActive ? "gray.800" : "#A3A9B6"} transition="color 0.2s ease-in-out" _hover={{ color: "gray.800" }}>
+            <Icon />
+          </Box>
+          <Text fontSize="sidebar" color="menuItem">
             {label}
           </Text>
         </HStack>
@@ -82,25 +97,34 @@ const NavItem = ({ icon, label, isActive = false, isCollapsed = false, onClick }
   )
 }
 
-const SidebarContent = ({ 
-  isCollapsed = false, 
-  onToggleCollapse, 
-  onItemClick 
-}: { 
+const SidebarContent = ({
+  isCollapsed = false,
+  onToggleCollapse,
+  onItemClick
+}: {
   isCollapsed?: boolean
   onToggleCollapse?: () => void
-  onItemClick?: () => void 
+  onItemClick?: () => void
 }) => {
-  const [activeItem, setActiveItem] = useState('dashboard')
+  const [activeItem, setActiveItem] = useState('network')
 
   const navItems = [
-    { icon: <LayoutDashboard fill="#A3A9B6" stroke='#A3A9B6' size={16} />, label: 'Lorem', id: 'dashboard' },
-    { icon: <TriangleAlert fill='#A3A9B6' stroke='#A3A9B6' size={16} />, label: 'Lorem', id: 'security' },
-    { icon: <Cuboid fill='#A3A9B6' stroke='#A3A9B6' size={16} />, label: 'Lorem', id: 'assets' },
-    { icon: <Server fill='#A3A9B6' stroke='#A3A9B6' size={16} />, label: 'Lorem', id: 'network' },
-    { icon: <Unplug fill='#A3A9B6' stroke='#A3A9B6' size={16} />, label: 'Lorem', id: 'users' },
-    { icon: <FileText fill='#A3A9B6' stroke='#A3A9B6' size={16} />, label: 'Lorem', id: 'settings' },
-    { icon: <FileText fill='#A3A9B6' stroke='#A3A9B6' size={16} />, label: 'Lorem', id: 'end' },
+    { icon: DashboardIcon, label: 'Lorem', id: 'dashboard' },
+    { icon: TriangleAlert, label: 'Lorem', id: 'security' },
+    { icon: CuboidIcon, label: 'Lorem', id: 'assets' },
+    { icon: ShrinkIcon, label: 'Lorem', id: 'network' },
+    { icon: UnplugIcon, label: 'Lorem', id: 'users' },
+    { icon: DocIcon, label: 'Lorem', id: 'settings' },
+    { icon: BarsIcon, label: 'Lorem', id: 'end' },
+  ]
+
+  const bottomNavItems = [
+    {
+      icon: SettingsIcon, label: 'Lorem', id: 'settings2'
+    },
+    {
+      icon: NotificationIcon, label: 'Lorem', id: 'notifications'
+    }
   ]
 
   const handleItemClick = (itemLabel: string) => {
@@ -109,21 +133,36 @@ const SidebarContent = ({
   }
 
   return (
-    <VStack gap="0" h="full" align="stretch" position="relative">
+    <VStack
+      gap="0"
+      h="full"
+      align="stretch"
+      position="relative"
+      boxShadow="sidebar"
+      borderRadius="xl"
+      p="28px 16px"
+    >
       {onToggleCollapse && (
-        <Box position="absolute" top="4" right="-12px" zIndex="10">
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          position="absolute"
+          top="12"
+          right="-12px"
+          zIndex="10"
+          bg="bg.muted"
+          h="32px"
+          w="32px"
+          borderRadius="full">
           <IconButton
             aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
             size="sm"
             variant="solid"
             borderRadius="full"
             onClick={onToggleCollapse}
-            bg="green.800"
+            bg="primary"
             color="white"
-            _hover={{ bg: 'green.600' }}
-            _focus={{ 
-              boxShadow: '0 0 0 2px green.200' 
-            }}
             w="6"
             h="6"
             minW="6"
@@ -146,16 +185,29 @@ const SidebarContent = ({
           ))}
         </VStack>
       </Box>
-      <Box p="4" borderTop="1px" borderColor="gray.200">
+      <Box>
+        <Box py="4" px={isCollapsed ? '-3' : '3'} role="menu">
+        {bottomNavItems.map((item) => (
+          <NavItem
+            key={item.id}
+            icon={item.icon}
+            label={item.label}
+            isActive={activeItem === item.id}
+            isCollapsed={isCollapsed}
+            onClick={() => handleItemClick(item.id)}
+          />
+        ))}
+        </Box>
+        <Divider />
         {isCollapsed ? (
           <VStack gap="2">
-            <Avatar size="md" />
+            <Avatar src="/user-img.png" size="md" />
             <IconButton
               aria-label="Logout"
               size="sm"
               variant="ghost"
-              _focus={{ 
-                boxShadow: '0 0 0 2px blue.500' 
+              _focus={{
+                boxShadow: '0 0 0 2px blue.500'
               }}
               title="Logout"
               w="8"
@@ -166,12 +218,12 @@ const SidebarContent = ({
           </VStack>
         ) : (
           <HStack gap="3">
-            <Avatar size="sm" name="mr-tackie" />
+            <Avatar src="/user-img.png" size="xl" name="mr-tackie" />
             <VStack gap="0" align="start" flex="1">
-              <Text fontSize="sm" fontWeight="medium" color="gray.800">
+              <Text fontSize="sidebar" color="menuItem">
                 Lorem
               </Text>
-              <Text fontSize="xs" color="gray.500">
+              <Text fontSize="sidebar" color="menuItem">
                 Lorem
               </Text>
             </VStack>
@@ -179,13 +231,13 @@ const SidebarContent = ({
               aria-label="Logout"
               size="sm"
               variant="ghost"
-              _focus={{ 
-                boxShadow: '0 0 0 2px blue.500' 
+              _focus={{
+                boxShadow: '0 0 0 2px blue.500'
               }}
               w="8"
               h="8"
             >
-              <LogOut size={16} />
+              <LogIn size={16} />
             </IconButton>
           </HStack>
         )}
@@ -194,13 +246,13 @@ const SidebarContent = ({
   )
 }
 
-export default function Sidebar({ 
-  isDesktop = false, 
+export default function Sidebar({
+  isDesktop = false,
   isCollapsed = false,
   onToggleCollapse,
-  isOpen = false, 
-  onClose, 
-  onOpen 
+  isOpen = false,
+  onClose,
+  onOpen
 }: SidebarProps) {
   if (isDesktop) {
     return (
@@ -209,9 +261,8 @@ export default function Sidebar({
         role="navigation"
         aria-label="Main navigation"
         h="full"
-        bg="bg"
       >
-        <SidebarContent 
+        <SidebarContent
           isCollapsed={isCollapsed}
           onToggleCollapse={onToggleCollapse}
         />
@@ -219,11 +270,10 @@ export default function Sidebar({
     )
   }
 
-  // Mobile drawer
   return (
-    <DrawerRoot 
-      open={isOpen} 
-      onOpenChange={(details: {open: boolean}) => {
+    <DrawerRoot
+      open={isOpen}
+      onOpenChange={(details: { open: boolean }) => {
         if (details.open) {
           onOpen?.()
         } else {

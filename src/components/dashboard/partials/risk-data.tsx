@@ -10,10 +10,10 @@ export const RiskData = () => {
     <Box p={4}>
       <Heading>Lorem Ipsum Dolor Sint</Heading>
       <Grid templateColumns={{ base: '1fr', md: '1fr 1fr' }} gap={{ base: 4, md: 6 }}>
-        <GridItem p={{ base: 2, md: 4 }}>
+        <GridItem>
           <AssetTable />
         </GridItem>
-        <GridItem p={{ base: 2, md: 4 }} borderRadius="md">
+        <GridItem>
           <RiskSummary />
         </GridItem>
       </Grid>

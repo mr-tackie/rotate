@@ -3,13 +3,12 @@ import { ReactFlow, type Node, type Edge } from "@xyflow/react";
 import CustomEdge from "./flowchart/edge";
 import CustomNode from "./flowchart/node";
 import "@xyflow/react/dist/style.css";
-import { Box } from "@chakra-ui/react";
-
+import { Box, Text, VStack  } from "@chakra-ui/react";
 const nodeStyle: React.CSSProperties = {
   width: "max-content",
 };
 
-export const NetworkFlowChart = () => {
+const FlowDiagram = () => {
   const nodes: Node[] = [
     {
       id: "node1",
@@ -35,7 +34,25 @@ export const NetworkFlowChart = () => {
     {
       id: "node4",
       data: {
-        label: "Loremipsumdolorsit\n192.168.1.1",
+        label: () => (
+          <VStack textAlign="center">
+            <Text
+              fontSize="0.875rem"
+              fontWeight="600"
+              lineHeight="0.875rem"
+              color="#525D73">
+              Loremipsumdolorsit
+            </Text>
+            <Text
+              as="span"
+              fontSize="0.75rem"
+              fontWeight="500"
+              lineHeight="0.875rem"
+              color="#667085">
+              192.168.1.1
+            </Text>
+          </VStack>
+        ),
         type: "end",
         endStatus: "error",
       },
@@ -46,7 +63,25 @@ export const NetworkFlowChart = () => {
     {
       id: "node5",
       data: {
-        label: "Loremipsumdolorsit\n192.168.1.2",
+        label: () => (
+          <VStack textAlign="center">
+            <Text
+              fontSize="0.875rem"
+              fontWeight="600"
+              lineHeight="0.875rem"
+              color="#525D73">
+              Loremipsumdolorsit
+            </Text>
+            <Text
+              as="span"
+              fontSize="0.75rem"
+              fontWeight="500"
+              lineHeight="0.875rem"
+              color="#667085">
+              192.168.1.2
+            </Text>
+          </VStack>
+        ),
         type: "end",
         endStatus: "error",
       },
@@ -64,9 +99,8 @@ export const NetworkFlowChart = () => {
   ];
 
   return (
-    <Box h={350} w="full" overflow="visible">
+    <Box h="300px" w="full">
       <ReactFlow
-        fitView
         nodes={nodes}
         edges={edges}
         nodeTypes={{ custom: CustomNode }}
@@ -75,3 +109,5 @@ export const NetworkFlowChart = () => {
     </Box>
   );
 };
+
+export default FlowDiagram;

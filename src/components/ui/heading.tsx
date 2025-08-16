@@ -16,7 +16,7 @@ export function Heading({
   return (
     <Text
       as={as}
-      color="green.fg"
+      color="#02983E"
       fontWeight={700}
       fontSize="20px"
       lineHeight="1.2"

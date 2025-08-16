@@ -31,13 +31,11 @@ export default function AppLayout({ children }: AppLayoutProps) {
 
   return (
     <Flex h={{base: "auto", md: "100vh"}} bg="bg">
-      <ColorModeButton hideBelow="md" />
       <Box 
         display={{ base: 'none', md: 'block' }}
-        w={isCollapsed ? '60px' : '280px'}
+        w={isCollapsed ? '60px' : '250px'}
         transition="width 0.5s ease"
-        borderRight="1px"
-        borderColor="gray.200"
+        bg="bg"
       >
         <Sidebar 
           isDesktop 
@@ -51,6 +49,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
         isDesktop={false}
       />
       <MainContent onOpenSidebar={onOpen}>
+        
         {children}
       </MainContent>
     </Flex>

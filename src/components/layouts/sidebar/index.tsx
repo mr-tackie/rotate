@@ -28,7 +28,6 @@ export default function Sidebar({
         role="navigation"
         aria-label="Main navigation"
         h="full"
-        bg="green"
       >
         <SidebarContent 
           isCollapsed={isCollapsed}

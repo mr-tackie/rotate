@@ -1,7 +1,7 @@
 'use client'
 
 import { Box, CardRoot, CardBody, Table, Flex, VStack, Text, Skeleton, SkeletonText } from '@chakra-ui/react'
-import { Server } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Server } from 'lucide-react'
 import { useAssetTableData } from '@/hooks/use-dashboard-content'
 
 export const AssetTable = () => {
@@ -9,9 +9,9 @@ export const AssetTable = () => {
 
   if (isLoading) {
     return (
-      <CardRoot shadow="xs">
+      <CardRoot shadow="xs" borderRadius="xl">
         <CardBody>
-          <Table.Root w="full">
+          <Table.Root w="full" border="none">
             <Table.Header>
               <Table.Row>
                 {["Asset", "Contextual Risk"].map((header) => (
@@ -75,9 +75,9 @@ export const AssetTable = () => {
   }
 
   return (
-    <CardRoot shadow="xs">
+    <CardRoot borderRadius="15px" borderColor="bg.muted" borderWidth="1px" shadow="xs">
       <CardBody>
-        <Table.Root w="full">
+        <Table.Root w="full" borderRadius="2xl">
           <Table.Header>
             <Table.Row>
               {["Asset", "Contextual Risk"].map((header) => (
@@ -139,12 +139,28 @@ export const AssetTable = () => {
                     py="1"
                     fontSize="md"
                     fontWeight="600"
-                    color="red.solid">
+                    color="red.solid"
+                    textTransform="capitalize">
                     {risk.risk}
                   </Text>
                 </Table.Cell>
               </Table.Row>
             ))}
+            <Table.Row>
+              <Table.Cell colSpan={2} py="3">
+                <Flex w="full" align="center" justify="center">
+                  <button aria-label="Previous page">
+                    <ChevronLeft size={20} color="#C2C6CE" />
+                  </button>
+                  <Text fontSize="0.875rem" color="#667085">
+                    Showing 1-2 of 2
+                  </Text>
+                  <button aria-label="Next page">
+                    <ChevronRight size={20} color="#858D9D" />
+                  </button>
+                </Flex>
+              </Table.Cell>
+            </Table.Row>
           </Table.Body>
         </Table.Root>
       </CardBody>

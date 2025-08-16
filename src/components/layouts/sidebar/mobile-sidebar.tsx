@@ -36,7 +36,7 @@ export const MobileSidebar = ({
     >
       <DrawerBackdrop />
       <DrawerContent>
-        <DrawerHeader>
+        <DrawerHeader bg="bg">
           <DrawerCloseTrigger asChild>
             <Button variant="ghost" size="sm" aria-label="Close sidebar">
               <X size={16} />

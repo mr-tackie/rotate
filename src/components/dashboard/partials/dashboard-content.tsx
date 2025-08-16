@@ -40,7 +40,7 @@ const DescriptionSection = () => {
 
 export default function DashboardContent() {
   return (
-    <Card.Root boxShadow="xs" h="100%" p={6} bg="bg" borderRadius="md" overflowY={{base: "visible", md: "auto"}}
+    <Card.Root p="20px 30px" boxShadow="dashboardCard" h="100%" bg="bg" borderRadius="2xl" overflowY={{base: "visible", md: "auto"}}
       css={{
         '&::-webkit-scrollbar': {
           width: '4px',
@@ -54,9 +54,9 @@ export default function DashboardContent() {
       <Card.Body>
         <Box>
           <DescriptionSection />
-          <Divider mt={8} mb={3} />
+          <Divider mt={8} mb={0} />
           <DataTable />
-          <Divider mt={8} mb={3} />
+          <Divider mt={3} mb={4} />
           <ServerAccordion />
         </Box>
       </Card.Body>

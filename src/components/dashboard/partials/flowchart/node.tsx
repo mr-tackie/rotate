@@ -1,8 +1,20 @@
 import React from "react";
 import { Handle, Position } from "@xyflow/react";
-import { ShieldCheck, ShieldX, Server, VenetianMask } from "lucide-react";
-import { Box, Flex, Text, Grid, HoverCard, HoverCardTrigger, HoverCardContent } from "@chakra-ui/react";
-import { EndNodeContent, ProcessNodeContent, StartNodeContent } from "./content";
+import StacksIcon from "@/assets/stacks-icon";
+import { ShieldCheck, ShieldX } from "lucide-react";
+import MaskIcon from "@/assets/mask-icon";
+import {
+  Box, Flex, Text, Grid, HoverCardRoot,
+  HoverCardContent,
+  HoverCardTrigger,
+  Portal
+} from "@chakra-ui/react";
+import {
+  StartNodeContent,
+  ProcessNodeContent,
+  EndNodeContent,
+} from "./content";
+
 interface CustomNodeProps {
   data: {
     label: string | (() => React.JSX.Element);
@@ -19,19 +31,15 @@ const CustomNode = ({ data }: CustomNodeProps) => {
   };
 
   return (
-    <HoverCard.Root>
+    <HoverCardRoot unstyled>
       <HoverCardTrigger asChild>
-        <Box>
+        <Box position="relative">
           <Flex direction="column" align="center" gap="1.5">
             {data.type === "start" ? (
-              <Box p={4} bg="red.subtle" borderRadius="full">
-                <VenetianMask color="#E6372B" height={30} width={30} />
-              </Box>
+              <MaskIcon style={{ height: "3.25rem", width: "3.25rem" }} />
             ) : (
               <Box position="relative">
-                <Box p={4} bg="blue.subtle" borderRadius="full">
-                  <Server height={30} width={30} color="#3182CE" />
-                </Box>
+                <StacksIcon style={{ height: "3.25rem", width: "3.25rem" }} />
                 {data.type === "end" && (
                   <Grid
                     position="absolute"
@@ -45,8 +53,7 @@ const CustomNode = ({ data }: CustomNodeProps) => {
                       data.endStatus
                         ? endStatusColors[data.endStatus]
                         : "transparent"
-                    }
-                  >
+                    }>
                     {data.endStatus === "success" ? (
                       <ShieldCheck size={16} color="white" />
                     ) : (
@@ -80,20 +87,13 @@ const CustomNode = ({ data }: CustomNodeProps) => {
       </HoverCardTrigger>
       <HoverCardContent
         position="absolute"
-        top="100%"
-        left="50%"
-        transform="translate(-50%, 10px)"
         zIndex="popover"
-        bg="white"
-        boxShadow="lg"
-        borderRadius="md"
-        p={4}
-      >
+        w="auto" >
         {data.type === "start" && <StartNodeContent />}
         {data.type === "process" && <ProcessNodeContent />}
-        {data.type === "end" && <EndNodeContent />}
+        {data.type === "end" && <EndNodeContent status={data.endStatus} />}
       </HoverCardContent>
-    </HoverCard.Root>
+    </HoverCardRoot>
   );
 };
 
