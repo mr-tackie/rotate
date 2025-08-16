@@ -63,7 +63,7 @@ export const ServerAccordion = () => {
                     justify="start"
                     gap="2"
                     pr={{xl: "4"}}
-                    borderRight="1px solid gray.600"
+                    borderRight="1px solid #E6E6E6"
                   >
                     <Box bg="blue.subtle" p={4} borderRadius="full">
                       <Server size={22} color="#3182CE" />

@@ -17,15 +17,14 @@ export const InfoSection = () => {
   return (
     <CardRoot p={6} bg="bg" borderRadius="xl" boxShadow="dashboardCard">
       <CardBody
-        order={{ base: 1, lg: 2 }}
-        flexGrow="1"
-        h={{ lg: "calc(100dvh - 3.5rem)" }}
-        overflowY="scroll"
-        borderRadius="2xl"
-        bg="bg"
-        boxShadow="0px 1px 3px 0px #0000000D"
-      >
-        <Box>
+          order={{ base: 1, lg: 2 }}
+          flexGrow="1"
+          h={{ lg: "calc(100dvh - 3.5rem)" }}
+          overflowY="scroll"
+          borderRadius="2xl"
+          bg="bg"
+          boxShadow="0px 1px 3px 0px #0000000D"
+        >
           <VStack gap="4" align="stretch" mb="4">
             <Heading>
               Lorem Lorem Lorem
@@ -33,9 +32,9 @@ export const InfoSection = () => {
             <VStack
               gap="2.5"
               borderRadius="lg"
+              bg="#FAFAFA"
               px="2"
               py="4"
-              bg="white"
               align="stretch">
               <NetworkFlowChart />
               <Divider mt={8} mb={3} />
@@ -47,7 +46,6 @@ export const InfoSection = () => {
             </VStack>
           </VStack>
           <RiskData />
-        </Box>
       </CardBody>
     </CardRoot>
   )

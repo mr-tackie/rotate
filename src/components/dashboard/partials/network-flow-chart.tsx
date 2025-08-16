@@ -99,7 +99,7 @@ const FlowDiagram = () => {
   ];
 
   return (
-    <Box h="300px" w="full">
+    <Box h="300px" w="full" position="relative" zIndex="1">
       <ReactFlow
         nodes={nodes}
         edges={edges}
