@@ -32,7 +32,7 @@ export const StartNodeContent = () => (
     px="7"
     py="5"
     boxShadow="xsm"
-    fontSize="0.875rem"
+    fontSize="13px"
     fontWeight="600"
     lineHeight="1.5rem"
     fontFamily={ibmPlex.style.fontFamily}>
@@ -43,7 +43,7 @@ export const StartNodeContent = () => (
       <Flex wrap="wrap" justify="flex-end" gap="1">
         {["1.2.3.4", "1.2.3.4", "1.2.3.4", "1.2.3.4", "1.2.3.4", "1.2.3.4"].map(
           (text, index) => (
-            <Text key={index} w="110px" borderRadius="lg" bg="#FFF1F0">
+            <Text key={index} fontSize="13px" w="110px" borderRadius="lg" bg="#FFF1F0">
               {text}
             </Text>
           )
@@ -51,14 +51,14 @@ export const StartNodeContent = () => (
       </Flex>
     </Box>
     <Box display="inline-block" borderRadius="lg" bg="#F2EDFF" px="1" py="0.5">
-      <Text color="#6236CC">Lorem: 1.2.3.4</Text>
+      <Text color="#6236CC" fontSize="13px">Lorem: 1.2.3.4</Text>
     </Box>
   </Box>
 );
 
-export const ProcessNodeContent = () => (
+export const ProcessNodeContent = ({id}: {id?: string}) => (
   <VStack
-    w="374px"
+    minW="374px"
     gap="1.5"
     borderRadius="lg"
     bg="#FAFAFA"
@@ -68,15 +68,16 @@ export const ProcessNodeContent = () => (
     align="stretch">
     <Flex align="center" gap="3">
       <StacksIcon style={{ height: "2.5rem", width: "2.5rem" }} />
-      <Text fontSize="0.875rem" fontWeight="600" color="#525D73">
+      <Text fontSize="13px" color="#525D73">
         Loremipsu
       </Text>
     </Flex>
+    {id === "node2" ? (<>
     <Flex
       wrap="wrap"
       align="center"
       gap="1"
-      fontSize="1rem"
+      fontSize="13px"
       fontWeight="700"
       lineHeight="1.5"
       color="#525D73">
@@ -89,6 +90,7 @@ export const ProcessNodeContent = () => (
       wrap="wrap"
       align="center"
       gap="1"
+      fontSize="13px"
       fontWeight="700"
       lineHeight="1.5"
       color="#525D73">
@@ -97,6 +99,154 @@ export const ProcessNodeContent = () => (
       <Pill color="#6236CC" bg="#F2EDFF" />
       <Pill color="#6236CC" bg="#F2EDFF" />
     </Flex>
+    </>) : (
+      <>
+      <Flex
+        wrap="wrap"
+        align="center"
+        gap="1"
+        fontSize="13px"
+        fontWeight="700"
+        lineHeight="1.5"
+        color="#525D73">
+        <ReceiptText size={16} color="#858D9D" />
+        <Text
+          as="span"
+          fontSize="15px"
+          lineHeight="1.5"
+          fontWeight="700"
+          color="#525D73">
+          Lorem:
+        </Text>
+        <Text
+          as="span"
+          borderRadius="md"
+          bg="#FFF9ED"
+          px="1"
+          py="0.5"
+          fontSize="0.875rem"
+          lineHeight="1.5"
+          fontWeight="600"
+          fontFamily={ibmPlex.style.fontFamily}
+          color="#EBA622">
+          Lorem &quot;ipsum&quot;
+        </Text>
+        <Text
+          as="span"
+          borderRadius="md"
+          bg="#E9FAF0"
+          px="1"
+          py="0.5"
+          fontSize="0.875rem"
+          lineHeight="1.5"
+          fontWeight="600"
+          color="#02983E">
+          Lorem
+        </Text>
+        <Text
+          as="span"
+          fontSize="15px"
+          lineHeight="1.5"
+          fontWeight="700"
+          color="#525D73">
+          Loremipsum Loremipsum
+        </Text>
+        </Flex>
+        <Flex
+          wrap="wrap"
+          align="center"
+          gap="1"
+          fontSize="13px"
+          fontWeight="700"
+          lineHeight="1.5"
+          color="#525D73">
+          <Pill color="#6236CC" bg="#F2EDFF" />
+          <Text as="span">Loremipsum</Text>
+          <Pill color="#6236CC" bg="#F2EDFF" />
+          <Pill color="#6236CC" bg="#F2EDFF" />
+          <Text
+            as="span"
+            borderRadius="md"
+            bg="#ECF5FF"
+            px="1"
+            py="0.5"
+            fontSize="13px"
+            lineHeight="1.5"
+            fontWeight="600"
+            fontFamily={ibmPlex.style.fontFamily}
+            color="#0053B5">
+            Lorem &quot;ipsum&quot;
+          </Text>
+        </Flex>
+      <Flex
+        wrap="wrap"
+        align="center"
+        gap="1"
+        fontSize="13px"
+        fontWeight="700"
+        lineHeight="1.5"
+        color="#525D73">
+        <ReceiptText size={16} color="#858D9D" />
+        <Text
+          as="span"
+          fontSize="15px"
+          lineHeight="1.5"
+          fontWeight="700"
+          color="#525D73">
+          Lorem:
+        </Text>
+        <Text
+          as="span"
+          borderRadius="md"
+          bg="#FFF9ED"
+          px="1"
+          py="0.5"
+          fontSize="0.875rem"
+          lineHeight="1.5"
+          fontWeight="600"
+          fontFamily={ibmPlex.style.fontFamily}
+          color="#EBA622">
+          Lorem &quot;ipsum&quot;
+        </Text>
+        <Text
+          as="span"
+          fontSize="15px"
+          lineHeight="1.5"
+          fontWeight="700"
+          color="#525D73">
+          Loremipsum Loremipsum
+        </Text>
+        </Flex>
+        <Flex
+          wrap="wrap"
+          align="center"
+          gap="1"
+          fontSize="13px"
+          fontWeight="700"
+          lineHeight="1.5"
+          color="#525D73">
+          <Pill color="#6236CC" bg="#F2EDFF" />
+          <Text as="span">Loremipsum</Text>
+          <Pill color="#6236CC" bg="#F2EDFF" />
+          <Pill color="#6236CC" bg="#F2EDFF" />
+          <Text
+            as="span"
+            borderRadius="md"
+            bg="#ECF5FF"
+            px="1"
+            py="0.5"
+            fontSize="13px"
+            lineHeight="1.5"
+            fontWeight="600"
+            fontFamily={ibmPlex.style.fontFamily}
+            color="#0053B5">
+            Lorem &quot;ipsum&quot;
+          </Text>
+          <Pill color="#6236CC" bg="#F2EDFF" />
+          <Pill color="#6236CC" bg="#F2EDFF" />
+        </Flex>
+      </>
+    )}
   </VStack>
 );
 
@@ -141,12 +291,11 @@ export const EndNodeContent = ({
           </Grid>
         </Box>
         <VStack align="stretch" gap="1">
-          <Text fontSize="0.875rem" fontWeight="600" color="#525D73">
+          <Text fontSize="13px" fontWeight="600" color="#525D73">
             Loremipsumdolorsit
           </Text>
           <Text
-            fontSize="0.75rem"
-            fontWeight="600"
+            fontSize="10px"
             lineHeight="0.875rem"
             color="#667085">
             192.168.1.1
@@ -158,7 +307,7 @@ export const EndNodeContent = ({
         <ReceiptText size={16} color="#858D9D" />
         <Text
           as="span"
-          fontSize="1rem"
+          fontSize="15px"
           lineHeight="1.5"
           fontWeight="700"
           color="#525D73">
@@ -182,7 +331,7 @@ export const EndNodeContent = ({
       <Flex wrap="wrap" align="center" gap="1">
         <Text
           as="span"
-          fontSize="1rem"
+          fontSize="15px"
           lineHeight="1.5"
           fontWeight="700"
           color="#525D73">

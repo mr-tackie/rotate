@@ -13,13 +13,13 @@ interface MainContentProps {
 
 export default function MainContent({ children, onOpenSidebar }: MainContentProps) {
   return (
-    <Box flex="1" bg="gray.50" overflow="hidden">
+    <Box flex="1" bg="bg" overflow="hidden">
       <Box
         display={{ base: 'flex', md: 'none' }}
         h="16"
         px="4"
         alignItems="center"
-        bg="white"
+        bg="bg"
         borderBottom="1px"
         borderColor="gray.200"
         shadow="sm"
@@ -41,6 +41,7 @@ export default function MainContent({ children, onOpenSidebar }: MainContentProp
       </Box>
       <Box
         h={{ base: 'calc(100vh - 4rem)', md: '100vh' }}
+        w="full"
         overflow="auto"
         role="main"
         aria-label="Main content"

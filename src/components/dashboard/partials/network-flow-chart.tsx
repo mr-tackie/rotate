@@ -12,21 +12,21 @@ const FlowDiagram = () => {
   const nodes: Node[] = [
     {
       id: "node1",
-      data: { label: "Loremipsumm", type: "start" },
+      data: { label: "Loremipsumm", type: "start", id: "node1" },
       position: { x: 0, y: 100 },
       type: "custom",
       style: nodeStyle,
     },
     {
       id: "node2",
-      data: { label: "Loremipsu", type: "process" },
+      data: { label: "Loremipsu", type: "process", id: "node2" },
       position: { x: 200, y: 100 },
       type: "custom",
       style: nodeStyle,
     },
     {
       id: "node3",
-      data: { label: "Loremipsu", type: "process" },
+      data: { label: "Loremipsu", type: "process", id: "node3" },
       position: { x: 400, y: 100 },
       type: "custom",
       style: nodeStyle,

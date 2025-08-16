@@ -6,8 +6,9 @@ import {
   HStack,
   Text,
   Button,
-  IconButton
+  IconButton,
 } from '@chakra-ui/react'
+import { Tooltip } from "@/components/ui/tooltip"
 import {
   DrawerBackdrop,
   DrawerBody,
@@ -35,6 +36,7 @@ import DocIcon from "@/assets/doc-icon ";
 import BarsIcon from "@/assets/bars-icon";
 import SettingsIcon from "@/assets/settings-icon ";
 import NotificationIcon from "@/assets/notification-icon";
+import SidebarLogo from '@/assets/sidebar-logo'
 import LogoutIcon from "@/assets/logout-icon";
 import { Divider } from '../ui/divider'
 
@@ -65,7 +67,7 @@ const NavItem = ({ icon: Icon, label, isActive = false, isCollapsed = false, onC
       p={isCollapsed ? '2' : '4'}
       bg={isActive ? 'active' : 'transparent'}
       color="menuItem"
-      _hover={{ bg: 'gray.50', color: "gray.fg" }}
+      _hover={{ bg: 'bg.subtle', color: "gray.fg" }}
       _focus={{
         bg: 'active'
       }}
@@ -75,17 +77,17 @@ const NavItem = ({ icon: Icon, label, isActive = false, isCollapsed = false, onC
       title={isCollapsed ? label : undefined}
       css={{
         '&:hover span': {
-          color: 'gray.800', 
+          color: 'gray.fg', 
         },
       }}
     >
       {isCollapsed ? (
-        <Box as="span" color={isActive ? "gray.800" : "#A3A9B6"} transition="color 0.2s ease-in-out" _hover={{ color: "gray.800" }}>
+        <Box as="span" color={isActive ? "gray.fg" : "#A3A9B6"} transition="color 0.2s ease-in-out" _hover={{ color: "gray.800" }}>
           <Icon />
         </Box>
       ) : (
         <HStack gap="3" w="full">
-          <Box as="span" color={isActive ? "gray.800" : "#A3A9B6"} transition="color 0.2s ease-in-out" _hover={{ color: "gray.800" }}>
+          <Box as="span" color={isActive ? "gray.fg" : "#A3A9B6"} transition="color 0.2s ease-in-out" _hover={{ color: "gray.800" }}>
             <Icon />
           </Box>
           <Text fontSize="sidebar" color="menuItem">
@@ -142,6 +144,16 @@ const SidebarContent = ({
       borderRadius="xl"
       p="28px 16px"
     >
+      {isCollapsed && (
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          mb="4"
+        >
+          <SidebarLogo />
+        </Box>
+      )}
       {onToggleCollapse && (
         <Box
           display="flex"
@@ -174,14 +186,19 @@ const SidebarContent = ({
       <Box flex="1" py="4" role="menu">
         <VStack gap="1" px={isCollapsed ? '2' : '3'}>
           {navItems.map((item) => (
-            <NavItem
+            <Tooltip
               key={item.id}
-              icon={item.icon}
-              label={item.label}
-              isActive={activeItem === item.id}
-              isCollapsed={isCollapsed}
-              onClick={() => handleItemClick(item.id)}
-            />
+              content={item.label}
+              disabled={!isCollapsed}
+              positioning={{ placement: "right" }}>
+                <NavItem
+                  icon={item.icon}
+                  label={item.label}
+                  isActive={activeItem === item.id}
+                  isCollapsed={isCollapsed}
+                  onClick={() => handleItemClick(item.id)}
+                />
+            </Tooltip>
           ))}
         </VStack>
       </Box>

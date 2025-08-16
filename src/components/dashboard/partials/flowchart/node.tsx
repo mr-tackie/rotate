@@ -13,6 +13,7 @@ import {
 
 interface CustomNodeProps {
   data: {
+    id: string;
     label: string | (() => React.JSX.Element);
     type: "start" | "process" | "end" | "process2";
     endStatus?: "success" | "error" | "warning";
@@ -115,7 +116,7 @@ const CustomNode = ({ data }: CustomNodeProps) => {
             }}
           >
             {data.type === "start" && <StartNodeContent />}
-            {data.type === "process" && <ProcessNodeContent />}
+            {data.type === "process" && <ProcessNodeContent id={data.id}/>}
             {data.type === "end" && <EndNodeContent status={data.endStatus} />}
           </Box>,
           document.body
