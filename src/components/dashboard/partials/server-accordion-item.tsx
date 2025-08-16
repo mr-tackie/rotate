@@ -38,7 +38,7 @@ export const ServerAccordion = () => {
             px="4"
             py="3"
           >
-            <AccordionItemTrigger indicatorPlacement="none">
+            <AccordionItemTrigger>
               <VStack cursor="pointer" gap="3" align="stretch" w="full">
                 <Text fontSize="15px" fontWeight="bold" color="slate">
                   {item.title}
@@ -63,7 +63,7 @@ export const ServerAccordion = () => {
                       <Server size={22} color="#3182CE" />
                     </Box>
                     
-                    <Flex align="center" justify="center" spacing="0" direction="column">
+                    <Flex align="center" justify="center" direction="column">
                       <Text
                         fontSize="sm"
                         fontWeight="semibold"

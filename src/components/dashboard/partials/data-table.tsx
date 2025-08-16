@@ -39,7 +39,7 @@ export const DataTable = () => {
                         </GridItem>
                         <GridItem>
                             {item.type === 'check' ? (
-                                <HStack spacing="2px" align="center">
+                                <HStack align="center">
                                     <Check size={15} color="#10B981" />
                                     <Text fontSize="15px" color="fg.muted">
                                         {item.value}

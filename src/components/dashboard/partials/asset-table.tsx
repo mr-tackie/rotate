@@ -41,23 +41,15 @@ export const AssetTable = () => {
                         height="40px"
                         width="40px"
                         borderRadius="full"
-                        startColor="gray.100"
-                        endColor="gray.200"
                       />
                       <VStack align="start" gap={0} flex="1">
                         <SkeletonText
                           noOfLines={1}
-                          skeletonHeight="16px"
                           width="70%"
-                          startColor="gray.100"
-                          endColor="gray.200"
                         />
                         <SkeletonText
                           noOfLines={1}
-                          skeletonHeight="12px"
                           width="50%"
-                          startColor="gray.100"
-                          endColor="gray.200"
                         />
                       </VStack>
                     </Flex>
@@ -71,8 +63,6 @@ export const AssetTable = () => {
                       height="24px"
                       width="80px"
                       borderRadius="full"
-                      startColor="gray.100"
-                      endColor="gray.200"
                     />
                   </Table.Cell>
                 </Table.Row>

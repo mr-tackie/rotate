@@ -99,7 +99,7 @@ This project was developed by **Mr. Tackie**. If you have any questions, suggest
 
 ### Prerequisites
 - Node.js (v16 or higher)
-- Yarn or npm
+- pnpm
 
 ### Installation
 1. Clone the repository:
@@ -112,13 +112,13 @@ This project was developed by **Mr. Tackie**. If you have any questions, suggest
    ```
 3. Install dependencies:
    ```bash
-   yarn install
+   pnpm install
    ```
 
 ### Running the Application
 Start the development server:
 ```bash
-yarn dev
+pnpm dev
 ```
 The application will be available at `http://localhost:3000`.
 

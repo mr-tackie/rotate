@@ -8,12 +8,12 @@ import { ServerAccordion } from "./server-accordion-item";
 
 const DashboardSkeleton = () => {
   return (
-    <Stack spacing={4}>
+    <Stack>
       <Skeleton height="40px" mb={6} />
-      <SkeletonText noOfLines={4} spacing="4" />
+      <SkeletonText noOfLines={4} />
       <Spacer mb={16} />
       <Skeleton height="40px" mb={6} />
-      <SkeletonText noOfLines={4} spacing="4" />
+      <SkeletonText noOfLines={4} />
     </Stack>
   )
 }

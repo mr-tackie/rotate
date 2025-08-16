@@ -18,17 +18,17 @@ export const RiskSummary = () => {
             <CardRoot shadow="xs" bg="bg">
                 <CardBody>
                     <VStack align="stretch" gap="4" p={4}>
-                        <SkeletonText noOfLines={1} skeletonHeight="20px" width="40%" startColor="gray.100" endColor="gray.200" />
+                        <SkeletonText noOfLines={1} width="40%" />
                         <Flex align="center" justify="flex-start" wrap="wrap" gap="12">
                             <VStack align="stretch" gap="4">
                                 {Array.from({ length: 4 }).map((_, index) => (
-                                    <HStack key={index} spacing="1">
-                                        <SkeletonCircle size="8px" startColor="gray.100" endColor="gray.200" />
+                                    <HStack key={index}>
+                                        <SkeletonCircle size="8px" />
                                         <SkeletonText noOfLines={1} h={2} w="30%"  />
                                     </HStack>
                                 ))}
                             </VStack>
-                            <SkeletonCircle size="144px" startColor="gray.100" endColor="gray.200" />
+                            <SkeletonCircle size="144px" />
                         </Flex>
                     </VStack>
                 </CardBody>
@@ -57,7 +57,6 @@ export const RiskSummary = () => {
                             {CONTEXTUAL_RISK.map((risk) => (
                                 <HStack
                                     key={risk.text}
-                                    spacing={4}
                                     fontSize="md"
                                     lineHeight="normal"
                                     color="fg.muted">
